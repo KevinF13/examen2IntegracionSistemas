@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+<h1>Inventario</h1>
+<table border="1">
+    <tr>
+        <th>IdProducto</th>
+        <th>NombreProducto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+    {% for producto in inventario_data %}
+    <tr>
+        <td>{{ producto.IdProducto }}</td>
+        <td>{{ producto.NombreProducto }}</td>
+        <td>{{ producto.Cantidad }}</td>
+        <td>{{ producto.Precio }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

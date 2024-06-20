@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Órdenes{% endblock %}
+
+{% block content %}
+<h1>Órdenes de Inventario</h1>
+
+<form action="/actualizarDesdeCSV" method="post" enctype="multipart/form-data">
+    <input type="file" name="archivo_csv" accept=".csv">
+    <button type="submit">Subir CSV</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>IdProducto</th>
+        <th>NombreProducto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+    </tr>
+    {% for producto in inventario_data %}
+    <tr>
+        <td>{{ producto['IdProducto'] }}</td>
+        <td>{{ producto['NombreProducto'] }}</td>
+        <td>{{ producto['Cantidad'] }}</td>
+        <td>{{ producto['Precio'] }}</td>
+        <td><img src="{{ producto['imagen'] }}" alt="Pokemon Image"></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
